@@ -233,12 +233,15 @@ class Solver:
     num_batches = N // batch_size
     if N % batch_size != 0:
       num_batches += 1
+
     y_pred = []
+
     for i in range(num_batches):
       start = i * batch_size
       end = (i + 1) * batch_size
       scores = self.model.loss(X[start:end])
       y_pred.append(np.argmax(scores, axis=1))
+
     y_pred = np.hstack(y_pred)
     acc = np.mean(y_pred == y)
 

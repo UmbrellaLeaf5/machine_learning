@@ -499,7 +499,7 @@ def conv_backward_naive(dout, cache):
   dw = np.zeros_like(w)
   db = np.zeros_like(b)
 
-  # db = np.sum(dout, axis=(0, 2, 3))
+  db = np.sum(dout, axis=(0, 2, 3))
 
   for n in range(N):
     for f in range(F):
